@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCGLab4", "PCGLab4.csproj", "{DDE0EA96-D359-435B-9E7D-74E1195DABC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDE0EA96-D359-435B-9E7D-74E1195DABC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDE0EA96-D359-435B-9E7D-74E1195DABC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDE0EA96-D359-435B-9E7D-74E1195DABC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDE0EA96-D359-435B-9E7D-74E1195DABC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A72978AB-B64A-4725-B070-BDAB1CC946A9}
+	EndGlobalSection
+EndGlobal
