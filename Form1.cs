@@ -12,8 +12,6 @@ namespace PCGLab4
             radius = 0;
             bruh = new Pen(Color.FromArgb(80, 80, 80), 4);
             rasterizer = new Rasterizer();
-
-
         }
 
         private System.Diagnostics.Stopwatch watch;
@@ -35,10 +33,6 @@ namespace PCGLab4
             Naive,
             CastlePitway,
         };
-
-
-
-
 
         public void drawMarkup(Graphics gr, Panel panel, VScrollBar vsb, HScrollBar hsb)
         {
@@ -179,17 +173,13 @@ namespace PCGLab4
             }
         }
 
-
-
-
-
         public void drawRasterization(Graphics gr, Panel panel, VScrollBar vsb, HScrollBar hsb, PointF begin, int radius)
         {
             watch = new System.Diagnostics.Stopwatch();
             watch.Start();
             var points = rasterizer.CircleBresenham(begin, radius);
             watch.Stop();
-            // tbCircle.Text = watch.Elapsed.TotalMilliseconds.ToString();
+            circletime_label.Text = watch.Elapsed.TotalMilliseconds.ToString();
             var cx = panel.Width / 2 + hsb.Value * shift;
             var cy = panel.Height / 2 - vsb.Value * shift;
             Pen pen = new Pen(Color.Black, 3);
@@ -208,7 +198,7 @@ namespace PCGLab4
             watch.Start();
             var points = rasterizer.Wu(begin, end);
             watch.Stop();
-            // tbWu.Text = watch.Elapsed.TotalMilliseconds.ToString();
+            bresenhamtime_label.Text = watch.Elapsed.TotalMilliseconds.ToString();
             var cx = panel.Width / 2 + hsb.Value * shift;
             var cy = panel.Height / 2 - vsb.Value * shift;
             Pen pen;
@@ -235,7 +225,7 @@ namespace PCGLab4
                         watch.Start();
                         points = rasterizer.Bresenham(begin, end);
                         watch.Stop();
-                        // tbBresenham.Text = watch.Elapsed.TotalMilliseconds.ToString();
+                        bresenhamtime_label.Text = watch.Elapsed.TotalMilliseconds.ToString();
                         break;
                     }
                 case (rasterization.DDA):
@@ -244,7 +234,7 @@ namespace PCGLab4
                         watch.Start();
                         points = rasterizer.DDA(begin, end);
                         watch.Stop();
-                        // tbDDA.Text = watch.Elapsed.TotalMilliseconds.ToString();
+                        ddatime_label.Text = watch.Elapsed.TotalMilliseconds.ToString();
                         break;
                     }
                 case (rasterization.Naive):
@@ -253,7 +243,7 @@ namespace PCGLab4
                         watch.Start();
                         points = rasterizer.Naive(begin, end);
                         watch.Stop();
-                        // tbNaive.Text = watch.Elapsed.TotalMilliseconds.ToString();
+                        naivetime_label.Text = watch.Elapsed.TotalMilliseconds.ToString();
                         break;
                     }
                 default:
@@ -278,8 +268,6 @@ namespace PCGLab4
 
 
 
-
-
         public void drawLine(Graphics gr, Panel panel, VScrollBar vsb, HScrollBar hsb, PointF start, PointF end, Color color)
         {
             int cx = (int)panel.Width/2 + hsb.Value * shift;
@@ -295,9 +283,6 @@ namespace PCGLab4
             int cy = (int)panel.Height/2 - vsb.Value * shift;
             gr.DrawEllipse(new Pen(color, (int)Math.Floor((decimal)shift/2)), (center.X * scale) + cx - radius * scale, -center.Y*scale + cy- radius * scale, 2 * radius * scale, 2 * radius * scale);
         }
-
-
-
 
 
 
@@ -320,8 +305,6 @@ namespace PCGLab4
             clear(ddapanel);
             clear(naivepanel);
         }
-
-
 
 
         private void bresenhampanel_Paint(object sender, PaintEventArgs e)
@@ -367,12 +350,12 @@ namespace PCGLab4
             clearLinePanels();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            scale = (int)scalenum.Value;
-            shift = scale / 2;
-            clearAll();
-        }
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    scale = (int)scalenum.Value;
+        //    shift = scale / 2;
+        //    clearAll();
+        //}
 
         private void rastCircleButton_Click(object sender, EventArgs e)
         {
@@ -419,6 +402,16 @@ namespace PCGLab4
         private void dda_hScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             ddapanel.Invalidate();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bresenhamtime_label_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
